@@ -1,0 +1,20 @@
+{
+	"manifest_version": 2,
+	"name": "jSin",
+	"version": "0.01",
+
+	"description": "Your average JavaScript injector.",
+	"icons": {
+		"16": "/resources/favicon/16x16.png",
+		"32": "/resources/favicon/32x32.png",
+		"48": "/resources/favicon/48x48.png",
+		"64": "/resources/favicon/64x64.png",
+		"128": "/resources/favicon/128x128.png"
+	},
+
+	"browser_action": {
+		"default_icon": "/resources/favicon/32x32.png",
+		"default_title": "jSin, your average JavaScript injector",
+		"default_popup": "/extension/popup.html"
+	}
+}
