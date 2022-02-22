@@ -2,7 +2,8 @@
 	--col-title: rgb(255, 200, 17);
 	--col-vnum: rgb(255, 104, 17);
 	--col-bg1: rgb(39, 39, 39);
-	--col-bg2: rgb(58, 58, 58);
+	--col-bg2: rgb(34, 34, 34);
+	--col-fgdark: rgb(54, 54, 54);
 }
 
 body {
@@ -18,6 +19,7 @@ body {
 }
 
 a {
+	color: var(--col-title);
 	cursor: pointer;
 }
 
@@ -36,7 +38,7 @@ a {
 
 	position: fixed;
 	width: 100%;
-	height: 100px;
+	height: 13.5%;
 	left: 0;
 	top: 0;
 
@@ -66,12 +68,104 @@ a {
 	font-size: 24pt;
 }
 
+.rulesets {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.rulesets.empty #add-ruleset {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.rulesets #add-ruleset > button {
+	background-color: var(--col-fgdark);
+	border: none;
+	border-radius: 50px;
+
+	cursor: pointer;
+
+	width: 40px;
+	height: 40px;
+
+	align-items: center;
+	justify-content: center;
+	display: flex;
+
+	transition: all 0.1s ease-in-out;
+
+	position: fixed;
+	top: 18%;
+	right: 17%;
+}
+.rulesets #add-ruleset > button:hover {
+	background-color: var(--col-title);
+}
+.rulesets #add-ruleset > button > img {
+	filter: invert(1);
+
+	width: 65%;
+}
+
+.rulesets > ul {
+	width: 100%;
+	height: 70%;
+
+	background-color: var(--col-bg2);
+	border-radius: 15px;
+
+	overflow-x: hidden;
+
+	padding: 0;
+	margin: 0;
+}
+
+.rulesets #no-rulesets {
+	color: var(--col-fgdark);
+	font-family: "Fira Mono";
+	font-size: 28pt;
+
+	user-select: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	width: 0;
+	height: 0;
+}
+.rulesets.empty #no-rulesets {
+	width: 100%;
+	height: 100%;
+}
+.rulesets #no-rulesets h2 {
+	opacity: 0;
+}
+.rulesets.empty #no-rulesets h2 {
+	opacity: 1;
+
+	font-size: 20pt;
+	font-weight: normal;
+
+	margin: 0;
+
+	text-align: center;
+}
+
 .footer {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 80px;
+	height: 10%;
 
 	text-align: center;
 }

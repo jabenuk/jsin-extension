@@ -4,7 +4,8 @@
 	<head>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
 		<title>jSin - dashboard</title>
 		<link rel="shortcut icon" href="/resources/favicon/32x32.png" type="image/x-icon">
@@ -24,9 +25,20 @@
 				<span id="db">your rulesets</span>
 			</div>
 
+			<div class="rulesets empty">
+				<div id="add-ruleset">
+					<button><img src="../resources/svg/plus.svg"></button>
+				</div>
+				<ul>	
+					<div id="no-rulesets">
+						<h2>you haven't added any rulesets yet.<br><a>create one.</a></h2>
+					</div>
+				</ul>
+			</div>
+
 			<div class="footer">
-				<a id="ghlogo"><img src="/resources/svg/github.svg"></a><br>
-				<span id="cred">(c) 2022 Jack Bennett</span>
+				<a id="ghlogo" href="https://github.com/jabenuk/jsin-extension"><img src="/resources/svg/github.svg"></a><br>
+				<span id="cred">2022 Jack Bennett</span>
 			</div>
 		</div>
 	</body>
