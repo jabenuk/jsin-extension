@@ -17,6 +17,10 @@ body {
 	justify-content: center;
 }
 
+a {
+	cursor: pointer;
+}
+
 .wrapper {
 	width: 70%;
 	height: 100%;
@@ -47,24 +51,19 @@ body {
 }
 .header #logo {
 	font-weight: bold;
-	font-size: 3em;
-}
-.header #version {
-	color: var(--col-vnum);
-	font-weight: normal;
-	font-size: 1.1em;
+	font-size: 40pt;
 }
 .header #pipe {
-	transform: scaleY(2) translateY(-2px);
-	-moz-transform: scaleY(2) translateY(-2px);
+	transform: scale(1.1, 2) translateY(-2px);
+	-moz-transform: scale(1.1, 2) translateY(-2px);
 
 	display: inline-block;
-	font-size: 2.4em;
+	font-size: 30pt;
 
 	padding: 0 20px;
 }
 .header #db {
-	font-size: 2em;
+	font-size: 24pt;
 }
 
 .footer {
@@ -78,6 +77,7 @@ body {
 }
 .footer #cred {
 	font-family: "Lato";
+	font-size: 12pt;
 	color: white;
 	user-select: none;
 }
@@ -86,6 +86,9 @@ body {
 	padding-top: 5px;
 	filter: brightness(0) invert(1);
 	user-select: none;
+
+	transform: translateY(-3px);
+	-moz-transform: translateY(-3px);
 }
 .footer #ghlogo:hover img {
 	filter: brightness(1) invert(0);

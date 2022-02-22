@@ -14,6 +14,10 @@ body {
 	overflow: hidden;
 }
 
+a {
+	cursor: pointer;
+}
+
 .metainf {
 	text-align: center;
 	line-height: 20px;
@@ -44,12 +48,12 @@ body {
 
 .metainf #logo {
 	font-weight: bold;
-	font-size: 2em;
+	font-size: 28pt;
 }
 .metainf #version {
 	color: var(--col-vnum);
 	font-weight: normal;
-	font-size: 0.8em;
+	font-size: 12pt;
 }
 
 .metainf #ghlogo {
@@ -85,6 +89,7 @@ body {
 	color: var(--col-title);
 	font-family: "Lato";
 	text-decoration: none;
+	font-size: 12pt;
 
 	transition: all 0.15s ease-in-out;
 

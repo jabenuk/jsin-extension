@@ -1,6 +1,9 @@
-document.getElementById("rulesets-btn").addEventListener("click", () => {
-	browser.tabs.create({
-		url: "/extension/dashboard.html"
+function addOpenTabListener(element, u) {
+	document.querySelector(element).addEventListener("click", () => {
+		chrome.tabs.create({ url: u });
+		window.close();
 	});
-	window.close();
-})
+};
+
+addOpenTabListener("#rulesets-btn", "/extension/dashboard.html");
+addOpenTabListener("#ghlogo", "https://github.com/jabenuk/jsin-extension");
