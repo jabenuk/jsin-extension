@@ -87,6 +87,8 @@ body {
 	text-decoration: none;
 
 	transition: all 0.15s ease-in-out;
+
+	user-select: none;
 }
 
 .content #rulesets-btn:hover {
