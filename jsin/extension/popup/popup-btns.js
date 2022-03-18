@@ -5,5 +5,5 @@ function addOpenTabListener(element, u) {
 	});
 };
 
-addOpenTabListener("#rulesets-btn", "/extension/dashboard.html");
 addOpenTabListener("#ghlogo", "https://github.com/jabenuk/jsin-extension");
+addOpenTabListener("#rulesets-btn", "/extension/dashboard.html");
