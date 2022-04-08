@@ -36,7 +36,9 @@ try {
 		"(；⌣̀_⌣́)",
 		"(&gt;︵&lt;)",
 		"(´-_-｀)",
-		"¯\\_(ツ)_/¯"
+		"¯\\_(ツ)_/¯",
+		"(o_O)",
+		"ヽ(•́ᴥ•̀)ノ",
 	];
 
 	let emoticonElement = document.querySelector("#emoticon");
