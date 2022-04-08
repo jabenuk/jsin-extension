@@ -15,7 +15,7 @@
 	"browser_action": {
 		"default_icon": "/resources/favicon/32x32.png",
 		"default_title": "jSin, your average JavaScript injector",
-		"default_popup": "/extension/popup/popup.html"
+		"default_popup": "/extension/frontend/popup.html"
 	},
 
 	"permissions": [
