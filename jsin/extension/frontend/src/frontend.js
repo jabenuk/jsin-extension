@@ -49,6 +49,7 @@ function chooseEmoticon(index) {
 // use random emoticon for empty ruleset list at page load
 chooseEmoticon(Math.floor(Math.random() * emoticons.length));
 
+// animate the emoticon every time it changes
 try {
 	let emoticonElement = document.querySelector("#emoticon");
 	emoticonElement.classList.add("animated");

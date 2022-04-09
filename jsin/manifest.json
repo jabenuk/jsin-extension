@@ -5,15 +5,15 @@
 
 	"description": "Your average JavaScript injector.",
 	"icons": {
-		"16": "/resources/favicon/16x16.png",
-		"32": "/resources/favicon/32x32.png",
-		"48": "/resources/favicon/48x48.png",
-		"64": "/resources/favicon/64x64.png",
-		"128": "/resources/favicon/128x128.png"
+		"16": "/resources/export/16x16.png",
+		"32": "/resources/export/32x32.png",
+		"48": "/resources/export/48x48.png",
+		"64": "/resources/export/64x64.png",
+		"128":"/resources/export/128x128.png"
 	},
 
 	"browser_action": {
-		"default_icon": "/resources/favicon/32x32.png",
+		"default_icon": "/resources/export/32x32.png",
 		"default_title": "jSin, your average JavaScript injector",
 		"default_popup": "/extension/frontend/popup.html"
 	},

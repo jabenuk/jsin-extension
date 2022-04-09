@@ -1,4 +1,4 @@
-<img src="/jsin/resources/favicon/128x128.png" align=left>
+<img src="jsin/resources/svg/brand/jsin.svg" align=left>
 
 # jSin: your average JavaScript injector
 
