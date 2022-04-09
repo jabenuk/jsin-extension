@@ -1,0 +1,49 @@
+/* responsive CSS for the jSin dashboard */
+
+/* less wide screens */
+@media screen and (max-width: 875px) {
+	.wrapper {
+		width: 100%;
+	}
+	.rulesets > ul {
+		border-radius: 0;
+	}
+
+	.rulesets #add-ruleset>button {
+		top: 18%;
+		right: 3%;
+	}
+}
+
+/* phone screens (portrait and landscape) */
+@media screen and (max-width: 400px), screen and (max-height: 400px) {
+	.header #logo {
+		font-size: 35pt;
+	}
+	.header #pipe, .header #db {
+		opacity: 0;
+		display: block;
+		position: absolute;
+	}
+	.footer {
+		opacity: 0;
+	}
+
+	.corner-logo {
+		opacity: 0;
+	}
+
+	.rulesets > ul {
+		height: 100%;
+	}
+
+	.rulesets #add-ruleset>button {
+		top: 2%;
+		right: 3%;
+	}
+
+	.rulesets #logo-mobile {
+		opacity: 1;
+		width: auto;
+	}
+}
