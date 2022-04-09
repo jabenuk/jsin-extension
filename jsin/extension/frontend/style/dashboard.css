@@ -1,3 +1,11 @@
+@keyframes fade-white-to-gray {
+	0% {
+		color: rgb(139, 139, 139);
+	} 100% {
+		color: var(--col-fgdark)
+	}
+}
+
 :root {
 	--col-title: rgb(255, 200, 17);
 	--col-vnum: rgb(255, 104, 17);
@@ -166,7 +174,8 @@ a {
 
 	text-align: center;
 }
-.rulesets #no-rulesets > #emoticon {
+
+#emoticon {
 	/* non-standard characters are used here so lots of fallback fonts are needed */
 	font-family: "Fira Mono", sans-serif, "FreeSans", "Arial", "Helvetica";
 	font-size: 38pt;
@@ -175,6 +184,9 @@ a {
 	margin-bottom: 24pt;
 
 	line-height: 40pt;
+}
+#emoticon.animated {
+	animation: fade-white-to-gray 0.2s ease-in-out;
 }
 
 .footer {
@@ -211,6 +223,8 @@ a {
 	right: 0;
 
 	margin: 40px;
+
+	cursor: pointer;
 }
 .corner-logo img {
 	width: 48px;
@@ -221,4 +235,9 @@ a {
 .corner-logo img:hover {
 	filter: brightness(1.2);
 	transform: scale(1.1);
+}
+.corner-logo img:active {
+	transform: scale(1.0);
+
+	transition: all 0.0s;
 }
