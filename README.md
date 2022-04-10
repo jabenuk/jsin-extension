@@ -6,9 +6,20 @@ jSin (or JSIN; **J**ava**S**cript **IN**jector) is a simple, work-in-progress, f
 
 If you want a built-in text editor, use another extension instead - any other ones will be better than what I could make anyway. Unless someone else who knows what they're doing wants to contribute and add a text editor page (which I would welcome), that idea will not be implemented. Besides, I recommend you use [Visual Studio Code](https://code.visualstudio.com/) or [Atom](https://atom.io/) instead.
 
+## jSin will not be published on the Chrome Web Store
+
+To publish extensions to the [Chrome Web Store](https://chrome.google.com/webstore/category/extensions), you need to register as a "Chrome Web Store Developer". This requires developers to be of a certain age (probably 18), which is fine. However, I would need to give Google **actual ID** in order to 'verify' my age. **See the problem?** I am not, and will *never*, give Google information that personal. It's simply a major, and *blatant*, breach of privacy.
+
+![image](https://user-images.githubusercontent.com/57215724/162618882-3444cc15-f4f0-4d17-b85f-a0cff5b30d5f.png)
+
+Unfortunately, this means that Chrome users (which I understand is a lot of people) are going to have to install the extension **unpacked.** More on that [below](#on-google-chrome).
+
+| The Firefox equivalent does not seem to need this information, so the extension will hopefully be put on there when it is in a somewhat complete state. |
+| - |
+
 ## Installation as an unpacked extension
 
-jSin is not on any web stores yet as its development is far from complete; however, you can still download and use the extension locally. This process differs from browser to browser.
+jSin is not on **any** web stores yet as its development is far from complete; however, you can still download and use the extension locally. This process differs from browser to browser.
 
 ### On Firefox
 
