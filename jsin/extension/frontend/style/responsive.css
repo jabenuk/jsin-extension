@@ -15,8 +15,8 @@
 	}
 }
 
-/* phone screens (portrait and landscape) */
-@media screen and (max-width: 400px), screen and (max-height: 400px) {
+/* very narrow screens (e.g. phones) + some landscape features */
+@media screen and (max-width: 400px), screen and (max-height: 500px) {
 	.header #logo {
 		font-size: 35pt;
 	}
@@ -45,5 +45,33 @@
 	.rulesets #logo-mobile {
 		opacity: 1;
 		width: auto;
+	}
+}
+
+/* narrow screens, but landscape (e.g. rotated phones) */
+@media screen and (max-height: 500px) {
+	.wrapper {
+		width: 100%;
+	}
+	.rulesets > ul {
+		border-radius: 0;
+	}
+
+	.rulesets #add-ruleset>button {
+		top: 7%;
+		right: 3%;
+	}
+}
+
+/* limit logo scale */
+@media screen and (min-height: 830px) {
+	.header #logo {
+		font-size: 65px;
+	}	
+	.header #pipe {
+		font-size: 48px;
+	}
+	.header #db {
+		font-size: 38px
 	}
 }

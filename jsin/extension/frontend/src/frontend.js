@@ -24,30 +24,19 @@ try {
 // DASHBOARD
 // ========
 
-// list of cute emoticons
-const emoticons = [
-	"(„• ᴥ •„)",
-	"( ´･﹏･｀)",
-	"(´-﹏-｀)",
-	"(；⌣̀_⌣́)",
-	"(&gt;︵&lt;)",
-	"(´-_-｀)",
-	"¯\\_(ツ)_/¯",
-	"(o_O)",
-	"ヽ(•́ᴥ•̀)ノ",
-	"(´･_･`)／",
-	"(っ^ᴥ^)っ",
-];
+// the amount of emoticons possible
+// (i.e. the amount of SVG files in /resources/svg/symbol/emoticon)
+const emoticonCount = 11;
 
 // choose emoticon for empty ruleset list
 function chooseEmoticon(index) {
 	try {
-		document.querySelector("#emoticon").innerHTML = emoticons[index];
+		document.querySelector("#emoticon").src = `../../resources/svg/symbolic/emoticon/${index}.svg`;
 	} catch {}
 }
 
 // use random emoticon for empty ruleset list at page load
-chooseEmoticon(Math.floor(Math.random() * emoticons.length));
+chooseEmoticon(Math.floor(Math.random() * emoticonCount));
 
 // animate the emoticon every time it changes
 try {
@@ -60,7 +49,7 @@ try {
 	
 	// button to change emoticon to random
 	document.querySelector(".corner-logo").addEventListener("click", () => {
-		chooseEmoticon(Math.floor(Math.random() * emoticons.length));
+		chooseEmoticon(Math.floor(Math.random() * emoticonCount));
 		
 		emoticonElement.classList.add("animated");
 		setTimeout(() => {
