@@ -31,6 +31,7 @@ const emoticonCount = 11;
 // choose emoticon for empty ruleset list
 function chooseEmoticon(index) {
 	try {
+		// load from emoticons folder
 		document.querySelector("#emoticon").src = `../../resources/svg/symbolic/emoticon/${index}.svg`;
 	} catch {}
 }
