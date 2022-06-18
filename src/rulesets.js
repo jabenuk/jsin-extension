@@ -11,6 +11,32 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// this function does not create a list item - that must be done when the
+// dashboard page is loaded.
+function addRuleset(name, url, src) {
+    // ruleset object
+    var ruleset = {
+        // specified name, url, and src
+        name: name,
+        url: url,
+        src: src,
+        // enabled by default
+        enabled: true
+    };
+
+    var keypair = {};
+    // random key instead of using name or url as multiple rulesets can have
+    // the same name or URL
+    keypair[Math.random().toString(36).slice(2, 10)] = JSON.stringify(ruleset);
+
+    // save this ruleset to synced extension storage
+    browser.storage.sync.set(keypair).then(() => {
+        console.log("saved a new ruleset to synced extension storage");
+    }, (error) => {
+        console.error(`failed to save ruleset to synced extension storage. See more information below...\n\n`, error);
+    });
+}
+
 // wrapper/handle to a HTML element representing a ruleset.
 class RulesetListItem {
     #name;
@@ -107,6 +133,13 @@ class RulesetListItem {
         }
     }
 
+    // delete the HTML element that this class handles, and remove this object from the array of ruleset list items
+    destroy() {
+        this.#element.remove();
+        rulesetListItems.splice(rulesetListItems.indexOf(this), 1);
+    }
+
+    // update the sync storage ruleset based on the contents (e.g. name, url, etc) of this ruleset list item.
     updateSyncRuleset() {
         var newRuleset = {
             name: this.#name,
@@ -181,6 +214,10 @@ class RulesetListItem {
     get element() {
         return this.#element;
     }
+
+    get key() {
+        return this.#key;
+    }
 }
 
 var rulesetListItems = [];
@@ -190,28 +227,20 @@ function addRulesetListItem(name, url, src, enabled, key) {
     rulesetListItems.push(new RulesetListItem(name, url, src, enabled, key));
 }
 
-// this function does not create a list item - that must be done when the
-// dashboard page is loaded.
-function addRuleset(name, url, src) {
-    // ruleset object
-    var ruleset = {
-        // specified name, url, and src
-        name: name,
-        url: url,
-        src: src,
-        // enabled by default
-        enabled: true
-    };
+// refresh the list of ruleset lists
+function refreshRulesetList() {
+	browser.storage.sync.get(null).then((rulesets) => {
+        // clear existing ruleset items
+        for (let i = 0; i <= rulesetListItems.length; i++) {
+            rulesetListItems[0].destroy();
+        }
 
-    var keypair = {};
-    // random key instead of using name or url as multiple rulesets can have
-    // the same name or URL
-    keypair[Math.random().toString(36).slice(2, 10)] = JSON.stringify(ruleset);
-
-    // save this ruleset to synced extension storage
-    browser.storage.sync.set(keypair).then(() => {
-        console.log("saved a new ruleset to synced extension storage");
+		// add a list item for each existing ruleset
+        for (const [key, value] of Object.entries(rulesets)) {
+            let rs = JSON.parse(value);
+            addRulesetListItem(rs.name, rs.url, rs.src, rs.enabled, key);
+        }
     }, (error) => {
-        console.error(`failed to save ruleset to synced extension storage. See more information below...\n\n`, error);
+		console.error(`failed to get existing rulesets. See more information below...\n\n${error}`);
     });
 }
