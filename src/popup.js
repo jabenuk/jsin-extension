@@ -1,4 +1,18 @@
+// function to add tab-opening functionality to buttons which is normally limited by extensions
+function addOpenTabListener(element, u) {
+    // enable the usage of `element` as a button.
+    // `u` is the URL that will open in a new tab when the button is clicked.
+    document.querySelector(element).addEventListener("click", () => {
+        chrome.tabs.create({ url: u });
+        window.close();
+    });
+};
+
 document.addEventListener("DOMContentLoaded", () => {
+    // allow for buttons that open pages in new tabs.
+    addOpenTabListener("#ghlogo", "https://github.com/jabenuk/jsin-extension");
+    addOpenTabListener("#rulesets-btn", "/frontend/dashboard.html");
+
     var textarea = document.getElementById("test_jscode");
     var injectBtn = document.getElementById("test_injectbtn");
 
