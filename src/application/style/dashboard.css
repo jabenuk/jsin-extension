@@ -11,7 +11,7 @@
 	--col-vnum: rgb(255, 104, 17);
 	--col-bg1: rgb(39, 39, 39);
 	--col-bg2: rgb(34, 34, 34);
-	--col-fgdark: rgb(71, 71, 71);
+	--col-fgdark: rgb(116, 116, 116);
 }
 
 html {
@@ -100,7 +100,7 @@ a {
 	height: 0;
 }
 
-.rulesets #add-ruleset>button {
+.rulesets #add-ruleset > button {
 	background-color: var(--col-fgdark);
 	border: none;
 	border-radius: 50px;
@@ -123,11 +123,11 @@ a {
 	z-index: 100;
 }
 
-.rulesets #add-ruleset>button:hover {
+.rulesets #add-ruleset > button:hover {
 	background-color: var(--col-title);
 }
 
-.rulesets #add-ruleset>button>img {
+.rulesets #add-ruleset > button > img {
 	filter: invert(1);
 
 	width: 65%;
@@ -135,13 +135,13 @@ a {
 	transition: fill, color 0.1s ease-in-out;
 }
 
-.rulesets #add-ruleset>button:hover>img {
+.rulesets #add-ruleset > button:hover > img {
 	filter: invert(0.1);
 
 	width: 65%;
 }
 
-.rulesets>ul {
+.rulesets > ul {
 	width: 100%;
 	height: 70%;
 
@@ -198,7 +198,7 @@ a {
 .rulesets #logo-mobile {
 	opacity: 0;
 	width: 0;
-	
+
 	position: absolute;
 	right: -70px;
 	bottom: -20px;
@@ -213,7 +213,7 @@ a {
 
 #emoticon {
 	height: 45px;
-	filter: brightness(0.3); /* make SVG darker to fit with --col-fgdark */
+	filter: brightness(0.4); /* make SVG darker to fit with --col-fgdark */
 
 	margin-bottom: 24pt;
 

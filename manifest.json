@@ -15,11 +15,26 @@
 	"browser_action": {
 		"default_icon": "/resources/export/32x32.png",
 		"default_title": "jSin, your average JavaScript injector",
-		"default_popup": "/extension/frontend/popup.html"
+		"default_popup": "test.html"
 	},
 
 	"permissions": [
+		"activeTab",
+		"storage",
 		"tabs",
-		"activeTab"
-	]
+		"http://*/",
+		"https://*/"
+	],
+
+	"background": {
+		"scripts": [
+			"node_modules/webextension-polyfill/dist/browser-polyfill.js"
+		]
+	},
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "jsin@jabenuk"
+		}
+	}
 }
