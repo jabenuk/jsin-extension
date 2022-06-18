@@ -9,56 +9,8 @@
 		border-radius: 0;
 	}
 
-	.rulesets #add-ruleset>button {
+	.rulesets #add-ruleset > button {
 		top: 18%;
-		right: 3%;
-	}
-}
-
-/* very narrow screens (e.g. phones) + some landscape features */
-@media screen and (max-width: 400px), screen and (max-height: 500px) {
-	.header #logo {
-		font-size: 35pt;
-	}
-	.header #pipe, .header #db {
-		opacity: 0;
-		display: block;
-		position: absolute;
-	}
-	.footer {
-		opacity: 0;
-	}
-
-	.corner-logo {
-		opacity: 0;
-	}
-
-	.rulesets > ul {
-		height: 100%;
-	}
-
-	.rulesets #add-ruleset>button {
-		top: 2%;
-		right: 3%;
-	}
-
-	.rulesets #logo-mobile {
-		opacity: 1;
-		width: auto;
-	}
-}
-
-/* narrow screens, but landscape (e.g. rotated phones) */
-@media screen and (max-height: 500px) {
-	.wrapper {
-		width: 100%;
-	}
-	.rulesets > ul {
-		border-radius: 0;
-	}
-
-	.rulesets #add-ruleset>button {
-		top: 7%;
 		right: 3%;
 	}
 }
@@ -67,7 +19,7 @@
 @media screen and (min-height: 830px) {
 	.header #logo {
 		font-size: 65px;
-	}	
+	}
 	.header #pipe {
 		font-size: 48px;
 	}

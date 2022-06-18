@@ -1,0 +1,83 @@
+.ruleset {
+    width: 100%;
+    height: 8ch;
+
+    border-bottom: 4px solid var(--col-bg1);
+
+    padding: 20px;
+
+    z-index: 100;
+
+    display: flex;
+}
+.ruleset:nth-child(odd) {
+    background-color: var(--col-bg3);
+}
+
+.ruleset > #identifier > #name {
+    color: var(--col-ruleset);
+	font-family: "Lato";
+	font-size: 20pt;
+    font-weight: bold;
+}
+
+.ruleset > #identifier > #url, .ruleset > #identifier > #url > a {
+    color: var(--col-url);
+	font-family: "Lato";
+	font-size: 14pt;
+    font-weight: bold;
+    font-style: italic;
+
+    line-height: 3ch;
+}
+
+.ruleset > #identifier > #url > a:hover {
+    color: var(--col-title);
+    text-decoration: underline;
+}
+
+.ruleset > ul {
+    height: 100%;
+
+    padding: 0;
+    margin-right: 12px;
+
+    display: flex;
+    align-items: center;
+}
+
+.ruleset > ul > * {
+	align-items: center;
+	justify-content: center;
+	display: flex;
+
+    color: var(--col-fgdark);
+
+    cursor: pointer;
+
+    margin-right: 4px;
+}
+
+.ruleset > ul > #edit:hover {
+    color: var(--col-edit);
+}
+.ruleset > ul > #delete:hover {
+    color: var(--col-delete);
+}
+
+.ruleset > ul > #status {
+    width: 20px;
+    height: 20px;
+
+    margin-left: 4px;
+
+    border-radius: 100%;
+}
+.ruleset > ul > #status.enabled {
+    background-color: var(--col-enabled);
+    box-shadow:  0px 0px 10px 1px var(--col-enabled);
+}
+.ruleset > ul > #status.disabled {
+    background-color: var(--col-disabled);
+    box-shadow:  0px 0px 10px 1px var(--col-disabled);
+}

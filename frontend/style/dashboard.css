@@ -6,12 +6,23 @@
 	}
 }
 
+* {
+	margin: 0;
+}
+
 :root {
 	--col-title: rgb(255, 200, 17);
 	--col-vnum: rgb(255, 104, 17);
 	--col-bg1: rgb(39, 39, 39);
 	--col-bg2: rgb(34, 34, 34);
+	--col-bg3: rgb(36, 36, 36);
 	--col-fgdark: rgb(116, 116, 116);
+	--col-ruleset: rgb(207, 207, 207);
+	--col-url: rgb(125, 125, 125);
+	--col-edit: rgb(92, 157, 255);
+	--col-delete: rgb(216, 63, 63);
+	--col-enabled: rgb(32, 184, 52);
+	--col-disabled: rgb(209, 30, 30);
 }
 
 html {
@@ -35,6 +46,10 @@ body {
 a {
 	color: var(--col-title);
 	cursor: pointer;
+}
+
+.no-action {
+	pointer-events: none;
 }
 
 .wrapper {
@@ -100,6 +115,14 @@ a {
 	height: 0;
 }
 
+.rulesets ul #no-rulesets h2 {
+	/* Some edit buttons won't work if we don't do this */
+	pointer-events: none;
+}
+.rulesets.empty ul #no-rulesets h2 {
+	pointer-events: all;
+}
+
 .rulesets #add-ruleset > button {
 	background-color: var(--col-fgdark);
 	border: none;
@@ -121,6 +144,9 @@ a {
 	right: 17%;
 
 	z-index: 100;
+
+	box-shadow:  3px 4px 23px 1px rgba(0, 0, 0, 0.41);
+	-webkit-box-shadow:  3px 4px 23px 1px rgba(0, 0, 0, 0.41);
 }
 
 .rulesets #add-ruleset > button:hover {
@@ -132,7 +158,7 @@ a {
 
 	width: 65%;
 
-	transition: fill, color 0.1s ease-in-out;
+	transition: all 0.1s ease-in-out;
 }
 
 .rulesets #add-ruleset > button:hover > img {
@@ -193,22 +219,6 @@ a {
 	text-align: center;
 
 	z-index: 50;
-}
-
-.rulesets #logo-mobile {
-	opacity: 0;
-	width: 0;
-
-	position: absolute;
-	right: -70px;
-	bottom: -20px;
-
-	font-size: 250px;
-	font-weight: 900;
-	font-family: "Lato";
-	color: rgb(29, 29, 29);
-
-	z-index: 0;
 }
 
 #emoticon {
@@ -283,4 +293,12 @@ a {
 	transform: scale(1.0);
 
 	transition: all 0.0s;
+}
+
+.material-symbols-outlined {
+	font-variation-settings:
+		'FILL' 0,
+		'wght' 400,
+		'GRAD' 0,
+		'opsz' 48;
 }

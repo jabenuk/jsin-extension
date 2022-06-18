@@ -11,35 +11,81 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-document.addEventListener("DOMContentLoaded", () => {
+// function to switch to empty-rulesets layout
+function emptyRulesetsLayout() {
+	document.querySelector(".rulesets").classList.add("empty");
+	document.querySelector(".corner-logo").classList.remove("no-action");
+
+	document.querySelector(".corner-logo").title = "Click me for +* kaomoji +*"
+
+	// use random emoticon for empty ruleset list at page load
+	randomiseEmoticon();
+	// button to change emoticon to random
+	document.querySelector(".corner-logo").addEventListener("click", () => {
+		randomiseEmoticon();
+	});
+}
+
+// function to switch to existing-rulesets layout
+function existingRulesetsLayout() {
+	// there should only be one .rulesets element
+	document.querySelector(".rulesets").classList.remove("empty");
+	document.querySelector(".corner-logo").classList.add("no-action");
+}
+
+// choose emoticon for empty ruleset list
+function chooseEmoticon(index) {
+	let emoticonElement = document.querySelector("#emoticon");
+
+	// load from emoticons folder
+	emoticonElement.src = `/resources/svg/symbolic/emoticon/${index}.svg`;
+
+	// animate emoticon after being changed
+	emoticonElement.classList.add("animated");
+	setTimeout(() => {
+		emoticonElement.classList.remove("animated");
+	}, 200);
+}
+
+// function to pick a random emoticon (for empty-rulesets layout)
+function randomiseEmoticon() {
 	// the amount of emoticons possible
 	// (i.e. the amount of SVG files in /resources/svg/symbol/emoticon)
 	const emoticonCount = 11;
 
-	// choose emoticon for empty ruleset list
-	function chooseEmoticon(index) {
-		// load from emoticons folder
-		document.querySelector("#emoticon").src = `../../resources/svg/symbolic/emoticon/${index}.svg`;
-	}
-
-	// use random emoticon for empty ruleset list at page load
 	chooseEmoticon(Math.floor(Math.random() * emoticonCount));
+}
 
-	// animate the emoticon every time it changes
-	let emoticonElement = document.querySelector("#emoticon");
-	emoticonElement.classList.add("animated");
+document.addEventListener("DOMContentLoaded", () => {
+	// get buttons to add rulesets
+	document.querySelectorAll(".create-ruleset-button").forEach((button) => {
+		// add click event listener
+		button.addEventListener("click", () => {
+			console.log("ruleset created");
+		});
+	});
 
-	setTimeout(() => {
-		emoticonElement.classList.remove("animated");
-	}, 200);
+	// get any rulesets that have been added
+	browser.storage.sync.get(null).then((rulesets) => {
+		console.log(`recieved existing rulesets from synced storage.`);
 
-	// button to change emoticon to random
-	document.querySelector(".corner-logo").addEventListener("click", () => {
-		chooseEmoticon(Math.floor(Math.random() * emoticonCount));
+		// set the layout according to the amount of items in sync storage
+		browser.storage.sync.getBytesInUse(null).then((bytesUsed) => {
+			if (bytesUsed <= 0) {
+				emptyRulesetsLayout();
+			} else {
+				existingRulesetsLayout();
+			}
+		}, (error) => {
+			console.error(`failed to get the size taken by synced storage. See more information below...\n\n${error}`);
+		});
 
-		emoticonElement.classList.add("animated");
-		setTimeout(() => {
-			emoticonElement.classList.remove("animated");
-		}, 200);
+		// add a list item for each existing ruleset
+		for (const [key, value] of Object.entries(rulesets)) {
+			let rs = JSON.parse(value);
+			addRulesetListItem(rs.name, rs.url, rs.src, rs.enabled, key);
+		}
+	}, (error) => {
+		console.error(`failed to get existing rulesets. See more information below...\n\n${error}`);
 	});
 });

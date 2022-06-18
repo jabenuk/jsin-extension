@@ -6,8 +6,9 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
 
-		<title>jSin - dashboard</title>
+		<title>jSin - your rulesets</title>
 		<link rel="shortcut icon" href="/resources/export/32x32.png" type="image/x-icon">
 
 		<meta charset="UTF-8">
@@ -16,6 +17,7 @@
 
 		<link rel="stylesheet" href="/frontend/style/dashboard.css">
 		<link rel="stylesheet" href="/frontend/style/responsive.css">
+		<link rel="stylesheet" href="/frontend/style/ruleset.css">
 	</head>
 
 	<body>
@@ -26,23 +28,23 @@
 				<span id="db">your rulesets</span>
 			</div>
 
-			<div class="rulesets empty">
+			<div class="rulesets">
 				<div id="add-ruleset">
-					<button><img src="/resources/svg/symbolic/plus.svg"></button>
+					<button class="create-ruleset-button" title="Add a new ruleset"><img src="/resources/svg/symbolic/plus.svg"></button>
 				</div>
+
 				<ul>
 					<div id="no-rulesets">
 						<img id="emoticon" src="/resources/svg/symbolic/emoticon/0.svg">
-						<h2>you haven't added any rulesets yet.<br><a>create one.</a></h2>
+						<!-- the 'create one' button here acts the same as the '+' button which normally appears -->
+						<h2>you haven't added any rulesets yet.<br><a class="create-ruleset-button" title="Add a new ruleset">create one.</a></h2>
 					</div>
 				</ul>
-
-				<span id="logo-mobile">jSin</span>
 			</div>
 
 			<div class="footer">
-				<a id="ghlogo" href="https://github.com/jabenuk/jsin-extension"><img src="/resources/svg/brand/github.svg"></a><br>
-				<span id="cred">2022 Jack Bennett</span>
+				<a id="ghlogo" href="https://github.com/jabenuk/jsin-extension" title="GitHub repository"><img src="/resources/svg/brand/github.svg"></a><br>
+				<span id="cred">(c) 2022 Jack Bennett<br><i>Please submit feature requests (as issues) to GitHub, linked above</i></span>
 			</div>
 
 			<div class="corner-logo">
@@ -50,6 +52,8 @@
 			</div>
 		</div>
 
+        <script src="/node_modules/webextension-polyfill/dist/browser-polyfill.js"></script>
+		<script src="/src/rulesets.js"></script>
 		<script src="/src/dashboard.js"></script>
 	</body>
 </html>
