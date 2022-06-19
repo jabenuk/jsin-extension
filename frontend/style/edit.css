@@ -1,0 +1,132 @@
+.savebtn {
+    color: var(--col-edit) !important;
+
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+
+    border-bottom: none !important;
+    border-top: 2px solid var(--col-bg1) !important;
+}
+
+.savebtn:hover {
+    background-color: var(--col-edit) !important;
+    border-top: 2px solid var(--col-edit) !important;
+    color: white !important;
+}
+
+.quitbtn {
+    color: var(--col-delete) !important;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    border-bottom: none !important;
+    border-top: 2px solid var(--col-bg1) !important;
+}
+
+.quitbtn:hover {
+    background-color: var(--col-delete) !important;
+    border-top: 2px solid var(--col-delete) !important;
+    color: white !important;
+}
+
+.edit-tab {
+    position: absolute;
+    top: 0;
+    height: 100%;
+
+    /* tab sidebar is 60px wide, so account for that to not block it */
+    width: 815px;
+    left: 60px;
+
+    overflow: auto;
+}
+
+.edit-tab ul {
+    padding: 0;
+}
+
+#tab-general {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+#tab-general li {
+    list-style: none;
+    font-size: 20pt;
+
+    width: 100%;
+}
+
+#tab-general #namecharcount {
+    font-size: 13pt;
+    font-style: italic;
+    color: rgb(126, 126, 126);
+
+    height: 25px;
+
+    /* just slightly smaller than the textarea below it */
+    width: 57ch;
+    text-align: right;
+}
+
+#tab-general #name textarea {
+    resize: none;
+    overflow: hidden;
+    width: 32ch;
+
+    background: none;
+    border: none;
+    border-radius: 10px;
+
+    outline: none;
+
+    color: white;
+    font-family: "Lato";
+    font-weight: bold;
+    text-align: center;
+    font-size: 24pt;
+
+    background-color: rgb(49, 49, 49);
+}
+
+#tab-general #name textarea:hover, #tab-general #name textarea:focus {
+    color: var(--col-title)
+}
+
+#tab-general #status {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 30px;
+}
+
+#tab-general #status div {
+    width: 200px;
+    height: 40px;
+
+    margin-left: 4px;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18pt;
+
+    cursor: pointer;
+}
+
+#tab-general #status.enabled div {
+    background-color: var(--col-enabled);
+    box-shadow: 0px 0px 10px 1px var(--col-enabled);
+}
+
+#tab-general #status.disabled div {
+    background-color: var(--col-disabled);
+    box-shadow: 0px 0px 10px 1px var(--col-disabled);
+}

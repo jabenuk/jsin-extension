@@ -56,39 +56,6 @@ function randomiseEmoticon() {
 	chooseEmoticon(Math.floor(Math.random() * emoticonCount));
 }
 
-// prompt the user if they want to delete the ruleset at key
-function deleteRulesetPrompt(key) {
-	// display modal
-	document.querySelector("#delete-prompt").classList.remove("closing");
-	document.querySelector("#delete-prompt").style.display = "flex";
-
-	// add functionality to modal cancel button
-	document.querySelector("#delete-prompt .cancelbtn").addEventListener("click", () => {
-		document.querySelector("#delete-prompt").classList.add("closing");
-		// wait for the fade-out animation (initiated above) to complete
-		setTimeout(() => {
-			document.querySelector("#delete-prompt").style.display = "none";
-		}, 100);
-	});
-
-	// add appropriate functionality to modal continue button
-	document.querySelector("#delete-prompt .continuebtn").addEventListener("click", () => {
-		document.querySelector("#delete-prompt").classList.add("closing");
-		// wait for the fade-out animation (initiated above) to complete
-		setTimeout(() => {
-			document.querySelector("#delete-prompt").style.display = "none";
-		}, 100);
-
-		// sometimes an error is thrown and I don't know why, but it doesn't cause any harm, so let's just ignore it
-		try {
-			// get index of ruleset in the list items array
-			let index = rulesetListItems.map((val) => { return val.key }).indexOf(key);
-			// delete this ruleset permanently
-			rulesetListItems[index].destroyPermanent();
-		} catch {}
-	});
-}
-
 document.addEventListener("DOMContentLoaded", () => {
 	// get buttons to add rulesets
 	document.querySelectorAll(".create-ruleset-button").forEach((button) => {

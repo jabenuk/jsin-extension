@@ -1,13 +1,8 @@
-var modals = document.querySelectorAll(".modal")
-
-modals.forEach((modal) => {
-    window.addEventListener("click", (event) => {
-        if (event.target == modal) {
-            modal.classList.add("closing");
-            // wait for the fade-out animation (initiated above) to complete
-            setTimeout(() => {
-                modal.style.display = "none";
-            }, 100);
-        }
-    });
-});
+// disable textarea newlines where necessary
+document.querySelector("#tab-general #name textarea").addEventListener("keydown", (e) => {
+    // enter is pressed
+    if (e.keyCode === 13) {
+        // suppress default behaviour
+        e.preventDefault();
+    }
+})

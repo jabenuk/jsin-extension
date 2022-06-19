@@ -92,6 +92,9 @@ class RulesetListItem {
                 edit.id = "edit";
                 edit.title = "Edit this ruleset's properties";
                 edit.innerHTML = "edit";
+                edit.addEventListener("click", () => {
+                    editRulesetPrompt(this.#key);
+                });
 
                 // delete (rubbish bin) button
                 let del = document.createElement("li");
@@ -106,6 +109,9 @@ class RulesetListItem {
                 // status (glowing icon) button
                 let status = document.createElement("li");
                 status.id = "status";
+                status.addEventListener("click", () => {
+                    this.enabled = !this.enabled;
+                });
 
                 // append these buttons into an unordered list
                 let tools = document.createElement("ul");
@@ -156,14 +162,6 @@ class RulesetListItem {
             }
 
             document.querySelector(".rulesets > ul").appendChild(this.#element);
-
-            // add functionality to the buttons
-            {
-                // add a status toggle feature to the status button
-                this.#element.querySelector("ul > #status").addEventListener("click", () => {
-                    this.enabled = !this.enabled;
-                });
-            }
         }, (error) => {
             console.error(`failed to get ruleset. See more information below...\n\n${error}`);
         });
@@ -292,8 +290,7 @@ function refreshRulesetList() {
 
 		// add a list item for each existing ruleset
         for (const [key, value] of Object.entries(rulesets)) {
-            let rs = JSON.parse(value);
-            addRulesetListItem(rs.name, rs.url, rs.src, rs.enabled, key);
+            addRulesetListItem(key);
         }
     }, (error) => {
 		console.error(`failed to get existing rulesets. See more information below...\n\n${error}`);

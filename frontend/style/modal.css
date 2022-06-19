@@ -13,6 +13,26 @@
     }
 }
 
+@keyframes zoomin {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    } to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes zoomout {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    } to {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
 .modal {
     position: fixed;
     z-index: 10000;
@@ -22,18 +42,18 @@
     width: 100%;
     height: 100%;
 
-    overflow: auto;
+    overflow: hidden;
 
     background-color: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(3px);
 
-    display: flex;
     justify-content: center;
     align-items: center;
 
     display: none;
 
     animation: fadein 0.1s ease-in-out;
+    animation-fill-mode: both;
 }
 .modal.closing {
     animation: fadeout 0.1s ease-in-out;
@@ -44,9 +64,6 @@
     background-color: var(--col-bg3);
     border: 2px solid var(--col-title);
 
-    width: 650px;
-    height: 200px;
-
     border-radius: 10px;
 
 	font-family: "Lato";
@@ -54,9 +71,25 @@
 
     text-align: center;
 
+    overflow: hidden;
+
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+
+    position: relative;
+
+    animation: zoomin 0.1s ease-in-out;
+    animation-fill-mode: both;
+}
+.modal.closing .modal-content {
+    animation: zoomout 0.1s ease-in-out;
+    animation-fill-mode: both;
+}
+
+#delete-prompt .modal-content {
+    width: 650px;
+    height: 200px;
 }
 
 .modal-prompt {
@@ -105,4 +138,39 @@
 .modal-choices {
     display: flex;
     justify-content: space-evenly;
+}
+
+.modal-tabs {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+
+    background-color: var(--col-bg2);
+}
+
+.modal-tabs > button {
+    background: none;
+    color: white;
+
+    width: 100%;
+    height: 40px;
+
+    border: none;
+    border-bottom: 2px solid var(--col-bg1);
+
+    cursor: pointer;
+
+    transition: all 0.15s ease-in-out;
+}
+
+.modal-tabs > button:hover, .modal-tabs > button.current {
+    background-color: var(--col-bg3);
+}
+.modal-tabs > button.current {
+    color: var(--col-title);
+}
+
+#edit-prompt .modal-content {
+    width: 875px;
+    height: 400px;
 }
