@@ -61,6 +61,16 @@
     width: 100%;
 }
 
+#tab-general #keydisplay {
+    font-size: 12pt;
+    font-style: italic;
+    color: rgb(126, 126, 126);
+
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+}
+
 #tab-general #namecharcount {
     font-size: 13pt;
     font-style: italic;
@@ -71,6 +81,8 @@
     /* just slightly smaller than the textarea below it */
     width: 57ch;
     text-align: right;
+
+    user-select: none;
 }
 
 #tab-general #name textarea {
@@ -102,6 +114,8 @@
     justify-content: center;
 
     margin-top: 30px;
+
+    user-select: none;
 }
 
 #tab-general #status div {

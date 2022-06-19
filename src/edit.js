@@ -86,6 +86,9 @@ function editRulesetPrompt(key) {
         // GENERAL TAB:
         //
 
+        // set key display appropriately
+        modal.querySelector("#tab-general #keydisplay").innerHTML = `ruleset key: ${key}`;
+
         // get name
         modal.querySelector("#tab-general #name textarea").value = ruleset.name;
 

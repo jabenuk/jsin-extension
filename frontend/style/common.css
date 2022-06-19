@@ -1,0 +1,5 @@
+::selection {
+    /* --col-title but translucent */
+    background-color: rgba(255, 199, 17, 0.377);
+    color: white;
+}

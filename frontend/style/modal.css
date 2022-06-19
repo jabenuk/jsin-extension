@@ -90,6 +90,8 @@
 #delete-prompt .modal-content {
     width: 650px;
     height: 200px;
+
+    user-select: none;
 }
 
 .modal-prompt {
@@ -146,6 +148,8 @@
     height: 100%;
 
     background-color: var(--col-bg2);
+
+    user-select: none;
 }
 
 .modal-tabs > button {
