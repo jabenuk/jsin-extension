@@ -59,11 +59,25 @@ function randomiseEmoticon() {
 // prompt the user if they want to delete the ruleset at key
 function deleteRulesetPrompt(key) {
 	// display modal
-	document.querySelector("#delete-prompt").style.display = 'flex';
+	document.querySelector("#delete-prompt").classList.remove("closing");
+	document.querySelector("#delete-prompt").style.display = "flex";
+
+	// add functionality to modal cancel button
+	document.querySelector("#delete-prompt .cancelbtn").addEventListener("click", () => {
+		document.querySelector("#delete-prompt").classList.add("closing");
+		// wait for the fade-out animation (initiated above) to complete
+		setTimeout(() => {
+			document.querySelector("#delete-prompt").style.display = "none";
+		}, 100);
+	});
 
 	// add appropriate functionality to modal continue button
 	document.querySelector("#delete-prompt .continuebtn").addEventListener("click", () => {
-		document.querySelector("#delete-prompt").style.display = "none";
+		document.querySelector("#delete-prompt").classList.add("closing");
+		// wait for the fade-out animation (initiated above) to complete
+		setTimeout(() => {
+			document.querySelector("#delete-prompt").style.display = "none";
+		}, 100);
 
 		// sometimes an error is thrown and I don't know why, but it doesn't cause any harm, so let's just ignore it
 		try {
@@ -82,11 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		button.addEventListener("click", () => {
 			addRuleset("Temporary ruleset test", "https://google.com/", "");
 		});
-	});
-
-	// add functionality to modal cancel buttons
-	document.querySelector("#delete-prompt .cancelbtn").addEventListener("click", () => {
-		document.querySelector("#delete-prompt").style.display = "none";
 	});
 
 	// get any rulesets that have been added
