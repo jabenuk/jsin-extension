@@ -284,8 +284,10 @@ function addRulesetListItem(key) {
 function refreshRulesetList() {
 	browser.storage.sync.get(null).then((rulesets) => {
         // clear existing ruleset items
-        for (let i = 0; i <= rulesetListItems.length; i++) {
+        let len = rulesetListItems.length; // store in buffer as rulesetListItems.length is modified by .destroy().
+        for (let i = 0; i < len; i++) {
             rulesetListItems[0].destroy();
+            console.log(rulesetListItems);
         }
 
 		// add a list item for each existing ruleset
