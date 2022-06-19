@@ -67,8 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	// get any rulesets that have been added
 	browser.storage.sync.get(null).then((rulesets) => {
-		console.log(`recieved existing rulesets from synced storage.`);
-
 		// set the layout according to the amount of items in sync storage
 		browser.storage.sync.getBytesInUse(null).then((bytesUsed) => {
 			if (bytesUsed <= 0) {

@@ -32,9 +32,7 @@ function addRuleset(name, url, src, createListItem=true) {
     keypair[key] = JSON.stringify(ruleset);
 
     // save this ruleset to synced extension storage
-    browser.storage.sync.set(keypair).then(() => {
-        console.log("saved a new ruleset to synced extension storage");
-    }, (error) => {
+    browser.storage.sync.set(keypair).then(() => {}, (error) => {
         console.error(`failed to save ruleset to synced extension storage. See more information below...\n\n`, error);
     });
 
@@ -45,6 +43,21 @@ function addRuleset(name, url, src, createListItem=true) {
         // run this in case this is the first ruleset
         existingRulesetsLayout();
     }
+}
+
+function clearRulesets(updateListItems=true) {
+    // clear sync storage
+    browser.storage.sync.clear().then(() => {
+        if (updateListItems) {
+            // clear HTML list
+            let len = rulesetListItems.length; // we must save the length in a buffer as this variable is modified in .destroy().
+            for (let i = 0; i < len; i++) {
+                rulesetListItems[0].destroy();
+            }
+        }
+    }, (error) => {
+        console.error(`failed to clear synced extension storage. See more information below...\n\n`, error);
+    })
 }
 
 // wrapper/handle to a HTML element representing a ruleset.
@@ -139,9 +152,7 @@ class RulesetListItem {
                 this.#element.appendChild(identifier);
             }
 
-            // append element to the list of rulesets in the correct place based on index.
             document.querySelector(".rulesets > ul").appendChild(this.#element);
-            // document.querySelector(".rulesets > ul").insertBefore(this.#element, document.querySelector(".rulesets > ul").children[index + 1]);
 
             // add functionality to the buttons
             {
@@ -159,21 +170,21 @@ class RulesetListItem {
     destroy() {
         this.#element.remove();
         rulesetListItems.splice(rulesetListItems.indexOf(this), 1);
+
+        // check if there are now no rulesets; if there is none left, change the layout back to empty-rulesets mode
+        browser.storage.sync.get(null).then((items) => {
+            if (Object.keys(items).length == 0) {
+                emptyRulesetsLayout();
+            }
+        }, (error) => {
+            console.error(`failed to get rulesets. See more information below...\n\n${error}`);
+        });
     }
 
     // destroy the HTML element and also remove the ruleset from synced extension storage
     destroyPermanent() {
         browser.storage.sync.remove(this.#key).then(() => {
             this.destroy();
-
-            // check if there are now no rulesets; if there is none left, change the layout back to empty-rulesets mode
-            browser.storage.sync.get(null).then((items) => {
-                if (Object.keys(items).length == 0) {
-                    emptyRulesetsLayout();
-                }
-            }, (error) => {
-                console.error(`failed to get rulesets. See more information below...\n\n${error}`);
-            });
 
         }, (error) => {
             console.error(`failed to remove ruleset from synced extension storage. See more information below...\n\n`, error);
