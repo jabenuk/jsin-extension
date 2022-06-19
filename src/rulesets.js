@@ -99,6 +99,9 @@ class RulesetListItem {
                 del.id = "delete";
                 del.title = "Delete this ruleset";
                 del.innerHTML = "delete";
+                del.addEventListener("click", () => {
+                    deleteRulesetPrompt(this.#key);
+                })
 
                 // status (glowing icon) button
                 let status = document.createElement("li");

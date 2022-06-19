@@ -256,11 +256,7 @@ a {
 
 .footer #ghlogo img {
 	width: 20px;
-	padding-top: 5px;
 	filter: brightness(0) invert(1);
-
-	transform: translateY(-3px);
-	-moz-transform: translateY(-3px);
 }
 
 .footer #ghlogo:hover img {

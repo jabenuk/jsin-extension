@@ -16,8 +16,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="/frontend/style/dashboard.css">
-		<link rel="stylesheet" href="/frontend/style/responsive.css">
 		<link rel="stylesheet" href="/frontend/style/ruleset.css">
+		<link rel="stylesheet" href="/frontend/style/modal.css">
+		<link rel="stylesheet" href="/frontend/style/responsive.css">
 	</head>
 
 	<body>
@@ -43,12 +44,28 @@
 			</div>
 
 			<div class="footer">
-				<a id="ghlogo" href="https://github.com/jabenuk/jsin-extension" title="GitHub repository"><img src="/resources/svg/brand/github.svg"></a><br>
-				<span id="cred">(c) 2022 Jack Bennett<br><i>Please submit feature requests (as issues) to GitHub, linked above</i></span>
+				<div>
+					<a id="ghlogo" href="https://github.com/jabenuk/jsin-extension" title="GitHub repository"><img src="/resources/svg/brand/github.svg"></a><br>
+					<span id="cred">(c) 2022 Jack Bennett<br><i>Please submit feature requests (as issues) to GitHub, linked above</i></span>
+				</div>
 			</div>
 
 			<div class="corner-logo">
 				<img src="/resources/svg/brand/jsin.svg">
+			</div>
+
+			<div class="modal" id="delete-prompt">
+				<section class="modal-content">
+					<div class="modal-prompt">
+						<h2>Deleting ruleset</h2>
+						<p>Are you sure you want to delete this ruleset?</p>
+					</div>
+
+					<div class="modal-choices">
+						<button class="cancelbtn">Cancel</button>
+						<button class="continuebtn">Go ahead</button>
+					</div>
+				</section>
 			</div>
 		</div>
 

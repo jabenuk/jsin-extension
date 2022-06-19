@@ -13,6 +13,15 @@
 		top: 18%;
 		right: 3%;
 	}
+
+	.modal-content {
+		width: 100%;
+
+		border: none;
+		border-top: 2px solid var(--col-title);
+		border-bottom: 2px solid var(--col-title);
+		border-radius: 0;
+	}
 }
 
 /* limit logo scale */

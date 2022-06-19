@@ -1,0 +1,86 @@
+.modal {
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: auto;
+
+    background-color: rgba(230, 230, 230, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
+}
+
+.modal-content {
+    background-color: var(--col-bg3);
+    border: 2px solid var(--col-title);
+
+    width: 650px;
+    height: 200px;
+
+    border-radius: 10px;
+
+	font-family: "Lato";
+    color: white;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.modal-prompt {
+    position: relative;
+}
+
+.modal-prompt > h2 {
+    font-size: 26pt;
+    color: var(--col-title);
+}
+.modal-prompt > p {
+    font-size: 16pt;
+    font-style: italic;
+}
+
+.cancelbtn, .continuebtn {
+	padding: 10px 80px;
+    border-radius: 8px;
+
+    /* --col-bg2 in popup.css */
+    background-color: rgb(58, 58, 58);
+
+    color: var(--col-title);
+	font-family: "Lato";
+    border: none;
+    font-size: 14pt;
+
+    transition: all 0.15s ease-in-out;
+
+    float: left;
+
+    cursor: pointer;
+}
+.continuebtn {
+    font-weight: bold;
+}
+.continuebtn:hover, .cancelbtn:hover {
+    background-color: var(--col-title);
+    color: var(--col-bg3);
+    transform: scale(1.1);
+}
+.cancelbtn:hover {
+    background-color: var(--col-url);
+}
+
+.modal-choices {
+    display: flex;
+    justify-content: space-evenly;
+}
