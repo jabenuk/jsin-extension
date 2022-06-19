@@ -82,8 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		// add a list item for each existing ruleset
 		for (const [key, value] of Object.entries(rulesets)) {
-			let rs = JSON.parse(value);
-			addRulesetListItem(rs.name, rs.url, rs.src, rs.enabled, key);
+			addRulesetListItem(key);
 		}
 	}, (error) => {
 		console.error(`failed to get existing rulesets. See more information below...\n\n${error}`);
