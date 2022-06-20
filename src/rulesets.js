@@ -210,6 +210,18 @@ class RulesetListItem {
         });
     }
 
+    // refresh the list item's contents based on the sync storage ruleset
+    refresh() {
+        browser.storage.sync.get(this.#key).then((ruleset) => {
+            let rs = JSON.parse(ruleset[this.#key]);
+
+            this.name = rs.name;
+            this.url = rs.url;
+            this.src = rs.src;
+            this.enabled = rs.enabled;
+        });
+    }
+
     get name() {
         return this.#name;
     }

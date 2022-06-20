@@ -116,6 +116,16 @@ function editRulesetPrompt(key) {
             modal.querySelector("#tab-general #status div").innerHTML = "DISABLED";
         }
 
+        // disable textarea newlines where necessary
+        modal.querySelector("#tab-general #name textarea").replaceWith(modal.querySelector("#tab-general #name textarea").cloneNode(true));
+        modal.querySelector("#tab-general #name textarea").addEventListener("keydown", (e) => {
+            // enter is pressed
+            if (e.keyCode === 13) {
+                // suppress default behaviour
+                e.preventDefault();
+            }
+        })
+
         // adding more button functionality...
 
         //
@@ -175,8 +185,8 @@ function editRulesetPrompt(key) {
                 console.error(`failed to save changes to ruleset. See more information below...\n\n`, error);
             });
 
-            // update the ruleset list items
-            refreshRulesetList();
+            // update the ruleset list item
+            rulesetListItems[rulesetListItemIndex].refresh();
 
             document.querySelector("#edit-prompt").classList.add("closing");
             // wait for the fade-out animation (initiated above) to complete
