@@ -77,6 +77,14 @@ function editRulesetPrompt(key) {
                     t.style.removeProperty("display");
                 }
             });
+
+            // add appropriate class to the modal content element
+            Array.from(modal.querySelector(".modal-content").classList).forEach((c) => {
+                modal.querySelector(".modal-content").classList.add(tab.replace("tab", ""));
+                if (c !== tab.replace("tab", "") && c !== "modal-content") {
+                    modal.querySelector(".modal-content").classList.remove(c);
+                }
+            });
         }
 
         // make tab buttons work

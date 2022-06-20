@@ -173,8 +173,3 @@
 .modal-tabs > button.current {
     color: var(--col-title);
 }
-
-#edit-prompt .modal-content {
-    width: 875px;
-    height: 400px;
-}

@@ -1,3 +1,18 @@
+#edit-prompt .modal-content {
+    width: 875px;
+    height: 400px;
+
+    /* circular curve */
+    transition: all 0.2s cubic-bezier(.08,.82,.17,1);
+}
+
+#edit-prompt .modal-content.general {
+    height: 198px;
+}
+#edit-prompt .modal-content.source {
+    height: 700px;
+}
+
 .savebtn {
     color: var(--col-edit) !important;
 
@@ -66,9 +81,7 @@
     font-style: italic;
     color: rgb(126, 126, 126);
 
-    position: absolute;
-    bottom: 10px;
-    left: 0;
+    margin-top: 20px;
 }
 
 #tab-general #namecharcount {
@@ -112,8 +125,6 @@
 #tab-general #status {
     display: flex;
     justify-content: center;
-
-    margin-top: 30px;
 
     user-select: none;
 }
