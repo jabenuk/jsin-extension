@@ -21,12 +21,11 @@
     font-weight: bold;
 }
 
-.ruleset > #identifier > #url, .ruleset > #identifier > #url > a {
+.ruleset > #identifier > #url {
     color: var(--col-url);
-	font-family: "Lato";
-	font-size: 14pt;
+	font-family: "Fira Code", monospace;
+	font-size: 11pt;
     font-weight: bold;
-    font-style: italic;
 
     line-height: 3ch;
 }

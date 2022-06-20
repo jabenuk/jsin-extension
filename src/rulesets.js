@@ -139,16 +139,11 @@ class RulesetListItem {
                 name.innerHTML = this.#name;
                 name.title = this.#name;
 
-                // URL
+                // URL pattern
                 let url = document.createElement("span");
                 url.id = "url";
-                url.title = this.#url;
-
-                // link inside the URL span
-                let url_anchor = document.createElement("a");
-                url_anchor.innerHTML = this.#url;
-                url_anchor.href = this.#url;
-                url.appendChild(url_anchor);
+                url.title = `${this.#url}`;
+                url.innerHTML = this.#url;
 
                 // add these elements to an 'identifier' section
                 let identifier = document.createElement("section");
@@ -240,9 +235,8 @@ class RulesetListItem {
     set url(val) {
         this.#url = val;
 
-        this.#element.querySelector("#identifier > #url > a").href = val;
-        this.#element.querySelector("#identifier > #url > a").innerHTML = val;
-        this.#element.querySelector("#identifier > #url > a").title = val;
+        this.#element.querySelector("#identifier > #url").innerHTML = val;
+        this.#element.querySelector("#identifier > #url").title = val;
 
         this.updateSyncRuleset();
     }

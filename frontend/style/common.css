@@ -14,3 +14,7 @@
     background-color: var(--col-fgdark);
     border-radius: 50px;
 }
+
+code {
+    font-family: "Fira Code", monospace;
+}

@@ -46,6 +46,8 @@ function deleteRulesetPrompt(key) {
 	});
 }
 
+editRulesetPrompt()
+
 function editRulesetPrompt(key) {
 	browser.storage.sync.get(key).then((rs_str) => {
         var ruleset = JSON.parse(rs_str[key]);
@@ -134,6 +136,13 @@ function editRulesetPrompt(key) {
             }
         })
 
+        //
+        // URL TAB:
+        //
+
+        // get URL
+        modal.querySelector("#tab-url #entry textarea").value = ruleset.url;
+
         // adding more button functionality...
 
         //
@@ -177,9 +186,9 @@ function editRulesetPrompt(key) {
         // add functionality to the save button
         modal.querySelector(".savebtn").replaceWith(modal.querySelector(".savebtn").cloneNode(true));
         modal.querySelector(".savebtn").addEventListener("click", () => {
-            // if there were any changes that weren't explicitly saved with a button, save them to workingBuffer now
-            // for example, the name of the ruleset:
+            // if there were any changes that weren't explicitly saved with a button (like name and URL), save them to workingBuffer now
             workingBuffer.name = modal.querySelector("#tab-general #name textarea").value;
+            workingBuffer.url = modal.querySelector("#tab-url #entry textarea").value;
 
             // also, as the enabled status of the ruleset was directly modified, we must also apply this to workingBuffer or else the change
             // will be overwritten:

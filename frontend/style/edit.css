@@ -12,6 +12,9 @@
 #edit-prompt .modal-content.source {
     height: 700px;
 }
+#edit-prompt .modal-content.url {
+    height: 250px;
+}
 
 .savebtn {
     color: var(--col-edit) !important;
@@ -57,19 +60,21 @@
     left: 60px;
 
     overflow: auto;
-}
 
-.edit-tab ul {
-    padding: 0;
-}
-
-#tab-general {
     justify-content: center;
     align-items: center;
     display: flex;
 }
 
-#tab-general li {
+.edit-tab ul {
+    padding: 0;
+
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit-tab li {
     list-style: none;
     font-size: 20pt;
 
@@ -154,4 +159,57 @@
 #tab-general #status.disabled div {
     background-color: var(--col-disabled);
     box-shadow: 0px 0px 10px 1px var(--col-disabled);
+}
+
+#tab-url #urlcharcount {
+    font-size: 13pt;
+    font-style: italic;
+    color: rgb(126, 126, 126);
+
+    height: 25px;
+
+    /* just slightly smaller than the textarea below it */
+    width: 70ch;
+    text-align: right;
+
+    user-select: none;
+}
+
+#tab-url #entry textarea {
+    resize: none;
+    overflow: hidden;
+    width: 62ch;
+
+    background: none;
+    border: none;
+    border-radius: 10px;
+
+    outline: none;
+
+    color: white;
+    font-family: "Fira Code";
+    font-weight: bold;
+    text-align: center;
+    font-size: 14pt;
+
+    background-color: rgb(49, 49, 49);
+}
+#tab-url #entry textarea:hover, #tab-url #entry textarea:focus {
+    color: var(--col-title)
+}
+
+#tab-url #info {
+    font-size: 13pt;
+    color: rgb(126, 126, 126);
+
+    margin-top: 20px;
+
+    width: 80%;
+    text-align: right;
+    word-wrap: normal;
+    text-align: center;
+}
+
+#tab-url #info code {
+    font-size: 12pt;
 }
