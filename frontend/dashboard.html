@@ -85,7 +85,7 @@
 
 					<section class="edit-tab" id="tab-general">
 						<ul>
-							<li id="name"><textarea spellcheck="false" autocomplete="false" autocapitalize="false" maxlength="30" rows="1"></textarea></li>
+							<li id="name"><textarea spellcheck="false" autocomplete="off" autocapitalize="off" maxlength="30" rows="1"></textarea></li>
 							<li id="namecharcount">max 30 characters</li>
 
 							<li id="status" class="enabled"><div></div></li>
@@ -94,10 +94,16 @@
 						</ul>
 					</section>
 
+					<section class="edit-tab" id="tab-source">
+						<ul>
+							<li id="tba"><b>Currently in development</b></li>
+						</ul>
+					</section>
+
 					<section class="edit-tab" id="tab-url">
 						<ul>
 							<li id="urlcharcount">max 60 characters</li>
-							<li id="entry"><textarea placeholder="URL pattern" spellcheck="false" autocomplete="false" autocapitalize="false" maxlength="60" rows="1"></textarea></li>
+							<li id="entry"><textarea placeholder="URL pattern" spellcheck="false" autocomplete="off" autocapitalize="off" maxlength="60" rows="1"></textarea></li>
 							<li id="info">
 								You can specify the URL as specific or as broad as you'd like - just make sure to format it as a
 								<a href="https://en.wikipedia.org/wiki/Glob_(programming)">glob pattern</a>. When the extension is running in the
