@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         language: "js",
         lineNumbers: true,
         readonly: false,
-        defaultTheme: false
+        defaultTheme: false,
+        tabSize: 4
     });
 });

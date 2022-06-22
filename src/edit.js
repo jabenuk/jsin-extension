@@ -139,7 +139,7 @@ function editRulesetPrompt(key) {
                 // suppress default behaviour
                 e.preventDefault();
             }
-        })
+        });
 
         //
         // SOURCE TAB:
@@ -151,6 +151,16 @@ function editRulesetPrompt(key) {
         //
         // URL TAB:
         //
+
+        // disable textarea newlines where necessary
+        modal.querySelector("#tab-url #entry textarea").replaceWith(modal.querySelector("#tab-url #entry textarea").cloneNode(true));
+        modal.querySelector("#tab-url #entry textarea").addEventListener("keydown", (e) => {
+            // enter is pressed
+            if (e.keyCode === 13) {
+                // suppress default behaviour
+                e.preventDefault();
+            }
+        });
 
         // get URL
         modal.querySelector("#tab-url #entry textarea").value = ruleset.url;

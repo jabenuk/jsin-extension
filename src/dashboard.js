@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	document.querySelectorAll(".create-ruleset-button").forEach((button) => {
 		// add click event listener
 		button.addEventListener("click", () => {
-			addRuleset("New ruleset", "*", "");
+			addRuleset("New ruleset", "*", "// code code code");
 		});
 	});
 
