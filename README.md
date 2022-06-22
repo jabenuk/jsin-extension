@@ -2,7 +2,6 @@
 
 # jSin: your average JavaScript injector
 
-![Lines of code](https://img.shields.io/tokei/lines/github/jabenuk/jsin-extension)
 [![Apache 2.0](https://img.shields.io/github/license/jabenuk/jsin-extension)](/LICENCE)
 
 jSin (or JSIN; **J**ava**S**cript **IN**jector) is a simple, work-in-progress, free-and-open-source JavaScript injector extension. It aims to be as simple and minimal as possible.
