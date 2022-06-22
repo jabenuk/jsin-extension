@@ -17,6 +17,8 @@ function updateFlaskContent(key) {
         var ruleset = JSON.parse(rs_str[key]);
 
         flask.updateCode(ruleset.src);
+    }, (error) => {
+		console.error(`failed to get a ruleset. See more information below...\n\n${error}`);
     });
 }
 
@@ -24,9 +26,7 @@ function updateFlaskContent(key) {
 var flask;
 
 document.addEventListener("DOMContentLoaded", () => {
-    var codeArea = document.querySelector("#code-editor");
-
-    flask = new CodeFlask(codeArea, {
+    flask = new CodeFlask("#code-editor", {
         language: "js",
         lineNumbers: true,
         readonly: false,
