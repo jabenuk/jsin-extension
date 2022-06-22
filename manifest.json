@@ -28,7 +28,8 @@
 
 	"background": {
 		"scripts": [
-			"/lib/webextension-polyfill/browser-polyfill.js"
+			"/lib/webextension-polyfill/browser-polyfill.js",
+			"/lib/codeflask/codeflask.min.js"
 		]
 	},
 

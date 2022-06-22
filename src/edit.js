@@ -137,6 +137,13 @@ function editRulesetPrompt(key) {
         })
 
         //
+        // SOURCE TAB:
+        //
+
+        // update flask contents
+        updateFlaskContent(key);
+
+        //
         // URL TAB:
         //
 
@@ -193,6 +200,9 @@ function editRulesetPrompt(key) {
             // also, as the enabled status of the ruleset was directly modified, we must also apply this to workingBuffer or else the change
             // will be overwritten:
             workingBuffer.enabled = rulesetListItems[rulesetListItemIndex].enabled;
+
+            // save the source code if it was updated
+            workingBuffer.src = flask.getCode();
 
             // save the workingBuffer ruleset into the actual ruleset in synced storage
             var keypair = {};

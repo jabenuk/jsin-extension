@@ -1,0 +1,78 @@
+#tab-source ul, #tab-source li, #code-editor {
+    width: 100%;
+    height: 100%;
+}
+
+#code-editor * {
+    font-family: "Fira Code", monospace !important;
+}
+
+/* CODEFLASK EDITOR STYLING */
+
+.codeflask__textarea {
+    background: var(--col-bg3) !important;
+    caret-color: #eee !important;
+
+    /* text opacity set to 0 (text is rendered using .codeflask__pre instead) */
+    color: rgba(255, 255, 255, 0) !important;
+}
+
+.codeflask__flatten {
+    font-size: 15px !important;
+}
+
+.codeflask__pre {
+    width: auto !important;
+}
+
+.codeflask.codeflask--has-line-numbers::before {
+    background: var(--col-bg1) !important;
+
+    z-index: 40 !important;
+}
+
+.codeflask__lines {
+    z-index: 50 !important;
+
+    font-size: 15px !important;
+}
+
+/* CODEFLASK KEYWORD THEMING */
+
+/* default words */
+.codeflask {
+    color: rgb(219, 219, 219);
+}
+.codeflask .token.keyword {
+    color: #b872e0;
+}
+.codeflask .token.operator {
+    color: #ff5598;
+}
+.codeflask .token.string {
+    color: #d69865;
+}
+.codeflask .token.comment {
+    color: #575757;
+}
+.codeflask .token.function {
+    color: #ffe298;
+}
+.codeflask .token.boolean {
+    color: #5b99f5;
+}
+.codeflask .token.number {
+    color: #c8f594;
+}
+.codeflask .token.selector {
+    color: #b872e0;
+}
+.codeflask .token.property {
+    color: #b872e0;
+}
+.codeflask .token.tag {
+    color: #b872e0;
+}
+.codeflask .token.attr-value {
+    color: #b872e0;
+}

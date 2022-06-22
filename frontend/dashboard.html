@@ -22,6 +22,7 @@
 		<link rel="stylesheet" href="/frontend/style/responsive.css">
 		<link rel="stylesheet" href="/frontend/style/edit.css">
 		<link rel="stylesheet" href="/frontend/style/common.css">
+		<link rel="stylesheet" href="/frontend/style/code.css">
 	</head>
 
 	<body>
@@ -95,8 +96,8 @@
 					</section>
 
 					<section class="edit-tab" id="tab-source">
+						<li><div id="code-editor"></div></li>
 						<ul>
-							<li id="tba"><b>Currently in development</b></li>
 						</ul>
 					</section>
 
@@ -118,8 +119,11 @@
 		</div>
 
         <script src="/lib/webextension-polyfill/browser-polyfill.js"></script>
+        <script src="/lib/codeflask/codeflask.min.js"></script>
+
 		<script src="/src/rulesets.js"></script>
 		<script src="/src/dashboard.js"></script>
 		<script src="/src/edit.js"></script>
+		<script src="/src/code.js"></script>
 	</body>
 </html>
