@@ -28,16 +28,8 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
                             browser.tabs.executeScript({ code: `console.error("[jSin] failed to execute script. More information below...\\n\\n${error}");` });
                             console.error(`failed to execute script. More information below...\n\n${error}`);
                         });
-
-<<<<<<< HEAD
-<<<<<<< HEAD
+                        
                         browser.tabs.executeScript({ code: `console.log("Injected JavaScript with jSin");` });
-=======
-                        browser.tabs.executeScript({ code: `Injected JavaScript with jSin` });
->>>>>>> 127d45b (Complete background script execution.)
-=======
-                        browser.tabs.executeScript({ code: `console.log("Injected JavaScript with jSin");` });
->>>>>>> fc93efd (Fix 'injected with jSin' message)
                     }
                 })
             });
